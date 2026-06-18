@@ -1,5 +1,5 @@
 name: Checkout Check Workflow   # チェックアウト確認用のワークフロー
-on: [push]
+on: [workflow_dispatch]
 
 jobs:
   # ① チェックアウトを【しない】ジョブ
@@ -12,13 +12,13 @@ jobs:
           ls -la
 
   # ② チェックアウトを【する】ジョブ
-  with-checkout:
-    runs-on: ubuntu-latest
-    steps:
-      - name: リポジトリのチェックアウト
-        uses: actions/checkout@v4
+  with-checkout: # 仮想マシンを用意
+    runs-on: ubuntu-latest 
+    steps: 
+      - name: リポジトリのチェックアウト # 最初のステップでリポジトリの内容をコピー
+        uses: actions/checkout@v4 # @v4はアクションのバージョンを指定
 
-      - name: ディレクトリの確認（Checkoutあり）
+      - name: ディレクトリの確認（Checkoutあり） # コマンドでコピーを確認
         run: |
-          echo "=== Checkoutした状態のファイル一覧 ==="
+          echo "=== Checkoutした状態のファイル一覧 ===" 
           ls -la
