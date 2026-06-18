@@ -10,7 +10,7 @@ jobs:
   path-job:
     runs-on: ubuntu-latest
     steps:
-      - name: リポジトリのチェックアウト
+      - name: リポジトリのチェックアウト # 、リポジトリの最新のコードをランナー上に展開(チェックアウト)する
         uses: actions/checkout@v4
 
       - name: srcディレクトリ内のファイル確認

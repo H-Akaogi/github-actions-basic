@@ -1,9 +1,9 @@
 name: Env Check Workflow
-on: [push]
+on: [workflow_dispatch]
 
 # 【ここで環境変数を作成・定義します】
 env:
-  GREETING_MSG: "これは環境変数（env）から呼び出されたメッセージです！"
+  GREETING_MSG: "これは環境変数（env）から呼び出されたメッセージです！" # これが環境変数
 
 jobs:
   env-job:
